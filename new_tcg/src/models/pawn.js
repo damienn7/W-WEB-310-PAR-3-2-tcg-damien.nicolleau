@@ -1,12 +1,14 @@
 import EventManager from "../eventManager";
 
 export default class Pawn extends EventManager {
-    constructor (life, strength, def) {
+    constructor(life, strength, def) {
+        super();
         this.life = life; // état de vie
         this.strength = strength; // force
         this.def = def; // défense
+
     }
-    
+
     getLife() {
         return this.life;
     }
@@ -25,10 +27,10 @@ export default class Pawn extends EventManager {
 
     receiveAttack(opponent, strikeBack = false) {
         if (strikeBack === false) {
-            this.life = (this.getLife() - opponent.getStrength() < 0)?0:this.getLife() - opponent.getStrength();
-            opponent.receiveAttack(this,true);
+            this.life = (this.getLife() - opponent.getStrength() < 0) ? 0 : this.getLife() - opponent.getStrength();
+            opponent.receiveAttack(this, true);
         } else {
-            this.life = (this.getLife() - opponent.getStrength() < 0)?0:this.getLife() - opponent.getStrength();
+            this.life = (this.getLife() - opponent.getStrength() < 0) ? 0 : this.getLife() - (opponent.getStrength() + opponent.getDef());
         }
     }
 }

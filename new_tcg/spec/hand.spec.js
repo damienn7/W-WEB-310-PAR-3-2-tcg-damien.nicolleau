@@ -17,7 +17,7 @@ describe("Unit Test - tests de la couche métier", function () {
         // TEST addCard()
         describe("addCard function ...", function () {
             beforeEach(function () {
-                console.log("Calling insertAt() ...");
+                console.log("Calling addCard() ...");
             });
             it("Card added", function () {
                 let result = model.addCard({ "face": "card-7" });
@@ -32,7 +32,7 @@ describe("Unit Test - tests de la couche métier", function () {
         // TEST removeCard()
         describe("removeCard function ...", function () {
             beforeEach(function () {
-                console.log("Calling insertAt() ...");
+                console.log("Calling removeCard() ...");
             });
             it("Card removed", function () {
                 let result = model.removeCard(5);
@@ -44,10 +44,10 @@ describe("Unit Test - tests de la couche métier", function () {
             });
         });
 
-        // TEST removeCard()
+        // TEST getAllCards()
         describe("getAllCards function ...", function () {
             beforeEach(function () {
-                console.log("Calling insertAt() ...");
+                console.log("Calling getAllCards() ...");
             });
             it("Cards got", function () {
                 let result = model.getAllCards();
@@ -62,7 +62,7 @@ describe("Unit Test - tests de la couche métier", function () {
         // TEST getCardsCount()
         describe("getCardsCount function ...", function () {
             beforeEach(function () {
-                console.log("Calling insertAt() ...");
+                console.log("Calling getCardsCount() ...");
             });
             it("Cards count got", function () {
                 let result = model.getCardsCount();

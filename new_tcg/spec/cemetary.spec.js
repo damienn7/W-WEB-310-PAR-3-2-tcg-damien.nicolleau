@@ -1,3 +1,4 @@
+import Cemetary from '../src/models/cemetary';
 import Deck from '../src/models/deck';
 
 // npm test to run the test ;)
@@ -8,9 +9,9 @@ describe("Unit Test - tests de la couche métier", function () {
     beforeEach(function () {
         number++;
         console.log("ModelTesting beginned [" + number + "]");
-        model = new Deck({ "cards": [{ "face": "card-1" }, { "face": "card-2" }, { "face": "card-3" }, { "face": "card-4" }, { "face": "card-5" }, { "face": "card-6" }] });
+        model = new Cemetary({ "cards": [{ "face": "card-1" }, { "face": "card-2" }, { "face": "card-3" }, { "face": "card-4" }, { "face": "card-5" }, { "face": "card-6" }] });
     });
-    describe("Desk Test - testing methods", function () {
+    describe("Cemetary Test - testing methods", function () {
         beforeEach(function () {
             console.log("Testing function ...");
         });
