@@ -1,5 +1,7 @@
 import Deck from '../src/models/deck';
 
+// npm test to run the test ;)
+
 describe("Unit Test - tests de la couche métier", function () {
     var number = 0;
     var model;
@@ -68,26 +70,26 @@ describe("Unit Test - tests de la couche métier", function () {
             });
         });
 
-    // TEST getCardsCount()
-    describe("getCardsCount function ...", function () {
-        beforeEach(function () {
-            console.log("Calling getCardsCount() ...");
-        });
-        it("Cards count", function () {
-            let result = model.getCardsCount();
-            expect(result).toBe(model.cards.length);
-            console.log('Length : '+result);
+        // TEST getCardsCount()
+        describe("getCardsCount function ...", function () {
+            beforeEach(function () {
+                console.log("Calling getCardsCount() ...");
+            });
+            it("Cards count", function () {
+                let result = model.getCardsCount();
+                expect(result).toBe(model.cards.length);
+                console.log('Length : ' + result);
+            });
+            afterEach(function () {
+                console.log("Call ended");
+            });
         });
         afterEach(function () {
-            console.log("Call ended");
+            console.log("Testing function ended");
         });
     });
-    afterEach(function () {
-        console.log("Testing function ended");
-    });
-});
 
-afterEach(function () {
-    console.log("Model Testing ended [" + number + "]");
-});
+    afterEach(function () {
+        console.log("Model Testing ended [" + number + "]");
+    });
 });

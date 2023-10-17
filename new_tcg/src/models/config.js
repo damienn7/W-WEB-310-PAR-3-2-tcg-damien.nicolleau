@@ -1,6 +1,7 @@
 import GameModel from './game';
 import DeckModel from './deck';
 import PlayerModel from './player';
+import CemetaryModel from './cemetary';
 
 export default {
     "game": {
@@ -14,5 +15,9 @@ export default {
     "player": {
         "class": PlayerModel,
         "param": '{}'
+    },
+    "cemetary": {
+        "class": CemetaryModel,
+        "param": '{"cards" : [{"face":"card-3"}, {"face":"card-4"}]}'
     }
 }
