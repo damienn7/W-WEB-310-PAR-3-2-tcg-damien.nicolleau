@@ -6,7 +6,6 @@ export default class Pawn extends EventManager {
         this.life = life; // état de vie
         this.strength = strength; // force
         this.def = def; // défense
-
     }
 
     getLife() {

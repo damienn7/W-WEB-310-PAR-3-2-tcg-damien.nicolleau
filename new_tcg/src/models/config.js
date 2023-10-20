@@ -1,7 +1,7 @@
 import GameModel from './game';
 import DeckModel from './deck';
 import PlayerModel from './player';
-import CemetaryModel from './cemetary';
+import HandModel from './hand';
 
 export default {
     "game": {
@@ -16,8 +16,8 @@ export default {
         "class": PlayerModel,
         "param": '{}'
     },
-    "cemetary": {
-        "class": CemetaryModel,
-        "param": '{"cards" : [{"face":"card-3"}, {"face":"card-4"}]}'
+    "hand": {
+        "class" : HandModel,
+        "param": '{"limit" : "10","cards":[]}'
     }
 }
