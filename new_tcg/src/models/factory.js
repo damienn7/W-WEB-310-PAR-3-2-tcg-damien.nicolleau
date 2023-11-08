@@ -1,4 +1,12 @@
-import models from './config'
+import models from './config';
+// import 'jsdom-global/register';
+import $ from 'jquery';
+// require('jsdom-global')(window);
+// import { JSDOM } from "jsdom";
+
+// let window = new JSDOM().window;
+
+// let $ = require('jquery')(window);
 
 var env = "prod";
 
@@ -18,6 +26,7 @@ export default {
             var configParams = JSON.parse(models[modelName].param),
                 constructorParams = $.extend({}, configParams, params);
 
+                console.log(constructorParams);
             var inst = Object.create(models[modelName].class.prototype);
             models[modelName].class.call(inst, constructorParams);
             return inst;

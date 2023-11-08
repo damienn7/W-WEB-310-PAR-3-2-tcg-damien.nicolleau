@@ -4,6 +4,8 @@ import Controller from './dom';
 
 import SideController from './side';
 
+import Player from '../models/player';
+
 var secondClick = false;
 
 export default class ArenaController extends Controller {
@@ -15,9 +17,13 @@ export default class ArenaController extends Controller {
         this.up = new SideController(".side.opponent", this);
         this.down = new SideController(".side.player", this);
 
-        this.game = ModelFactory.get('game', {'up'  : ModelFactory.get('player', {type: 'computer'}),
-                                              'down': ModelFactory.get('player', {type: 'human'}) });
-
+        // this.game = ModelFactory.get('game', {'up'  : ModelFactory.get('player', {type: 'computer'}),
+        //                                       'down': ModelFactory.get('player', {type: 'human'}) });
+        let up = new Player({type: 'computer'});
+        let down = new Player({type:'human'});
+        this.game = ModelFactory.get('game', {'up'  : up,
+                                              'down': down });
+                                              
         this.on('clickDeck', this.onClickDeck.bind(this));
         this.on('clickHand', this.onClickHand.bind(this));
         this.on('clickBoard', this.onClickBoard.bind(this));
@@ -28,10 +34,10 @@ export default class ArenaController extends Controller {
 
     onClickDeck (deck) {
         var s = deck.getSide();
-
         var self = this;
+        console.log("---___before"," ",this.game["down"].deck.cards);
         var cardState = this.game[s].draw();
-
+        console.log("---___after"," ",this.game["down"].deck.cards," cardState", cardState);
         cardState.getSide = function () {
             return s;
         };

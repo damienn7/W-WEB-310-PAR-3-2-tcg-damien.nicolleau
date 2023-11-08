@@ -1,5 +1,7 @@
 import Pawn from '../src/models/pawn';
 
+// import Player from '../src/models/player';
+
 // npm test to run the test ;)
 
 describe("Unit Test - tests de la couche métier", function () {
@@ -29,6 +31,7 @@ describe("Unit Test - tests de la couche métier", function () {
             });
         });
 
+        
         // TEST getStrength()
         describe("getStrength function ...", function () {
             beforeEach(function () {
@@ -65,7 +68,7 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.log("Calling attack() ...");
             });
             it("attack did", function () {
-                let target = new Pawn(80,60,20);
+                let target = new Pawn(80, 60, 20);
                 console.log("life before attack");
                 console.log("model");
                 console.table(model);
@@ -84,6 +87,20 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.log("Call ended");
             });
         });
+
+        // // TEST getLife()
+        // describe("getLife function ...", function () {
+        //     beforeEach(function () {
+        //         console.log("Calling getLife() ...");
+        //     });
+        //     it("Life got", function () {
+        //         model = new Player({type: 'human'});
+        //         console.table(model);
+        //     });
+        //     afterEach(function () {
+        //         console.log("Call ended");
+        //     });
+        // });
 
         afterEach(function () {
             console.log("Testing function ended");

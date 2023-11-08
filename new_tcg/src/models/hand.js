@@ -2,7 +2,7 @@
 export default class Hand {
     constructor (config) {
         this.cards = config.cards;
-        this.limit = (config.limit) ? config.limit : 7; // to be tested soon
+        this.limit = ("limit" in config) ? config.limit : 7; // to be tested soon
     }
 
     addCard(card) {

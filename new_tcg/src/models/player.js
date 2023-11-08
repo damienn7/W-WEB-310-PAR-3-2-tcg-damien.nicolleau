@@ -2,25 +2,31 @@ import BoardController from '../controllers/board';
 import ModelFactory from './factory';
 import Hand from './hand';
 import Board from './board';
+import Deck from './deck';
 import Pawn from './pawn';
 import Cemetary from './cemetary';
 
-export default class Player extends Pawn {
+// import configFactory from './config';
+
+export default class Player extends Pawn{
 
     constructor(config) {
         // TO BE TESTED
-        super();
-        // type human || type computer
+        super(10,10,10);
+        //type human || type computer
         this.type = config.type;
-        this.hand = ModelFactory.get("hand");
-        this.board = new Board();
-        this.cemetary = new Cemetary();
-        this.deck = ModelFactory.get('deck');
+        this.hand = new Hand({cards:[]});
+        this.board = new Board({cards:[],limit:7});
+        this.cemetary = new Cemetary({cards:[]});
+        // this.deck = ModelFactory.get('deck');
+        console.log("***",ModelFactory.get('deck'));
+        // console.log("*",ModelFactory.get('deck') instanceof Deck);
+        // console.log("-",ModelFactory.get('deck').draw());
+        this.deck = new Deck(ModelFactory.get('deck'));
+        // return this;
     }
 
-    draw () {
-        return this.deck.draw();
-    }
+  
 
     shuffle(type = "deck") {
         if (type === "deck") {
@@ -29,6 +35,14 @@ export default class Player extends Pawn {
             return this.cemetary.shuffle();
         }
     }
+
+    draw() {
+        // console.log("**",ModelFactory);
+        // console.log("--",this.hand);
+        // console.log("****",this.deck);
+        // console.log("*player calling draw function : ",this.deck.draw());
+        return this.deck.draw();
+    }   
 
     playCard(position) {
         // to be
@@ -55,6 +69,12 @@ export default class Player extends Pawn {
     attack(position, target) {
         // to be
         let card = this.board.cards.splice(position,0);
-        this.attack(target);
+        if (typeof card == "object") {            
+            let attack = card.attack.split("-");
+            this.life = attack[0];
+            this.strength = attack[1];
+            this.defense = attack[2];
+            this.attack(target);
+        }
     }
 }

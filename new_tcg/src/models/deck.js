@@ -22,7 +22,6 @@ export default class Deck {
 
             cards[random_index] = element;
             cards.splice(index, 1,element_to_shuffle);
-            // cards[index] = element_to_shuffle;
         }
         // on initialise nouveau paquet fraichement mélangé
         this.cards = cards;
@@ -46,6 +45,7 @@ export default class Deck {
         if (this.cards.length === 0) {
             return false;
         } else {
+            // console.log(this.cards.splice(0,1));
             return this.cards.splice(0,1);
         }
     }

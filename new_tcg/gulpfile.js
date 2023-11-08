@@ -17,10 +17,10 @@ gulp.task('less', function (done) {
 gulp.task('babel', function (done) {
     gulp.src('src/**/*.js')
         .pipe(babel({
-            "presets": ["es2015"]
+            "presets": ["@babel/preset-env", "@babel/preset-react"]
         }))
         .on('error', function(error) {
-            console.log(error);
+            console.log(error.message);
 
             done();
         })
