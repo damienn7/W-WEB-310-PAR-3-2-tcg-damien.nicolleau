@@ -1,4 +1,3 @@
-import BoardController from '../controllers/board';
 import ModelFactory from './factory';
 import Hand from './hand';
 import Board from './board';
@@ -6,9 +5,7 @@ import Deck from './deck';
 import Pawn from './pawn';
 import Cemetary from './cemetary';
 
-// import configFactory from './config';
-
-export default class Player extends Pawn{
+export default class Player extends Pawn {
 
     constructor(config) {
         // TO BE TESTED
@@ -18,10 +15,6 @@ export default class Player extends Pawn{
         this.hand = new Hand({cards:[]});
         this.board = new Board({cards:[],limit:7});
         this.cemetary = new Cemetary({cards:[]});
-        // this.deck = ModelFactory.get('deck');
-        console.log("***",ModelFactory.get('deck'));
-        // console.log("*",ModelFactory.get('deck') instanceof Deck);
-        // console.log("-",ModelFactory.get('deck').draw());
         this.deck = new Deck(ModelFactory.get('deck'));
         // return this;
     }
@@ -30,17 +23,15 @@ export default class Player extends Pawn{
 
     shuffle(type = "deck") {
         if (type === "deck") {
-            return this.deck.shuffle();
+            this.deck.shuffle();
+            return true;
         } else {
-            return this.cemetary.shuffle();
+            this.cemetary.shuffle();
+            return true;
         }
     }
 
     draw() {
-        // console.log("**",ModelFactory);
-        // console.log("--",this.hand);
-        // console.log("****",this.deck);
-        // console.log("*player calling draw function : ",this.deck.draw());
         return this.deck.draw();
     }   
 

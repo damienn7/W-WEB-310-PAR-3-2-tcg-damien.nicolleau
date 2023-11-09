@@ -9,7 +9,7 @@ describe("Unit Test - tests de la couche métier", function () {
     beforeEach(function () {
         number++;
         console.log("ModelTesting beginned [" + number + "]");
-        model = new Cemetary({ "cards": [{ "face": "card-1" }, { "face": "card-2" }, { "face": "card-3" }, { "face": "card-4" }, { "face": "card-5" }, { "face": "card-6" }] });
+        model = new Cemetary({ "cards": [{ "face": "card-1" }, { "face": "card-2" }] });
     });
     describe("Cemetary Test - testing methods", function () {
         beforeEach(function () {
@@ -40,12 +40,12 @@ describe("Unit Test - tests de la couche métier", function () {
             it("Cards are inserted", function () {
                 console.log('Cards before insertAt() :');
                 console.table(model.cards);
-                let pos = model.insertAt({ "face": "card-2.5" }, 2);
+                let pos = model.insertAt({ "face": "card-2" }, 2);
                 console.log(pos);
                 expect(JSON.stringify(model.cards[model.cards.length - 1])).not.toBe(JSON.stringify({ "face": "card-2.5" }));
                 console.log('Cards after insertAt() with position :');
                 console.table(model.cards);
-                model.insertAt({ "face": "card-2.5" });
+                model.insertAt({ "face": "card-2" });
                 expect(JSON.stringify(model.cards[model.cards.length - 1])).toBe(JSON.stringify({ "face": "card-2.5" }));
                 console.log('Cards after insertAt() without position :');
                 console.table(model.cards);

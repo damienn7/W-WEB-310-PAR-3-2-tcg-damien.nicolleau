@@ -33,6 +33,7 @@ export default class Deck {
         // ajoute une carte à la fin du paquet 
         // ou à la position donnée en paramètre
         // !position -> position === null
+
         if (!position) {
             this.cards.push(card);
         } else {
@@ -46,7 +47,7 @@ export default class Deck {
             return false;
         } else {
             // console.log(this.cards.splice(0,1));
-            return this.cards.splice(0,1);
+            return this.cards.shift();
         }
     }
 

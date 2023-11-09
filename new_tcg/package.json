@@ -27,6 +27,7 @@
     "jquery-browserify": "^1.8.1",
     "jsdom": "^22.1.0",
     "jsdom-global": "^3.0.2",
+    "tinyify": "^4.0.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },

@@ -9,10 +9,10 @@ export default {
     },
     "deck": {
         "class": DeckModel,
-        "param": '{"cards": [{"face":"card-1"}, {"face":"card-2"}]}'
+        "param": '{"cards": [{"face":"card-1"}, {"face":"card-2"},{"face":"card-1"}, {"face":"card-2"},{"face":"card-1"}, {"face":"card-2"}, {"face":"card-2"}]}'
     },
     "player": {
         "class": PlayerModel,
-        "param": '{"type":"human","cards": [{"face":"card-1"}, {"face":"card-2"}]}'
+        "param": '{"type":"human","cards": [{"face":"card-1"}, {"face":"card-2"},{"face":"card-1"}, {"face":"card-2"},{"face":"card-1"}, {"face":"card-2"}, {"face":"card-2"}]}'
     }
 }

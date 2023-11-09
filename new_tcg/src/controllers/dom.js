@@ -1,4 +1,9 @@
 import $ from 'jquery-browserify';
+// import { JSDOM } from "jsdom";
+
+// let window = new JSDOM().window;
+
+// let $ = require('jquery')(window);
 import EventManager from '../eventManager';
 
 class Dom extends EventManager {

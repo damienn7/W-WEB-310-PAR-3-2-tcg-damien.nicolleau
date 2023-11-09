@@ -18,7 +18,7 @@ export default class ArenaController extends Controller {
         this.down = new SideController(".side.player", this);
 
         // this.game = ModelFactory.get('game', {'up'  : ModelFactory.get('player', {type: 'computer'}),
-        //                                       'down': ModelFactory.get('player', {type: 'human'}) });
+                                            //   'down': ModelFactory.get('player', {type: 'human'}) });
         let up = new Player({type: 'computer'});
         let down = new Player({type:'human'});
         this.game = ModelFactory.get('game', {'up'  : up,
@@ -29,23 +29,23 @@ export default class ArenaController extends Controller {
         this.on('clickBoard', this.onClickBoard.bind(this));
         this.on('targetHand', this.onTargetHand.bind(this));
         this.on('clickEndTurn', this.onClickEndTurn.bind(this));
-
     }
 
     onClickDeck (deck) {
         var s = deck.getSide();
         var self = this;
-        console.log("---___before"," ",this.game["down"].deck.cards);
-        var cardState = this.game[s].draw();
-        console.log("---___after"," ",this.game["down"].deck.cards," cardState", cardState);
+        console.log("---___before"," ",self.game["down"].deck.cards);
+        var cardState = self.game[s].draw();
+        console.log("---___after"," ",self.game["down"].deck.cards," cardState", cardState);
         cardState.getSide = function () {
             return s;
         };
-        self.trigger('drawCard', cardState);
-
+        // console.log(cardState);
+        self.trigger('drawCard', cardState);           
+        
         if (self.game[s].deck.getCardsCount() === 0) {
             self.trigger('emptyDeck');
-        }              
+        }
     }
 
 

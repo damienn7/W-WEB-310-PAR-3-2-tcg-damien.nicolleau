@@ -88,20 +88,6 @@ describe("Unit Test - tests de la couche métier", function () {
             });
         });
 
-        // // TEST getLife()
-        // describe("getLife function ...", function () {
-        //     beforeEach(function () {
-        //         console.log("Calling getLife() ...");
-        //     });
-        //     it("Life got", function () {
-        //         model = new Player({type: 'human'});
-        //         console.table(model);
-        //     });
-        //     afterEach(function () {
-        //         console.log("Call ended");
-        //     });
-        // });
-
         afterEach(function () {
             console.log("Testing function ended");
         });

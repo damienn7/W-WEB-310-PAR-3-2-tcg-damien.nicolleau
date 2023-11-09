@@ -9,7 +9,7 @@ describe("Unit Test - tests de la couche métier", function () {
     beforeEach(function () {
         number++;
         console.log("ModelTesting beginned [" + number + "]");
-        model = new Board({ "cards": [{ "face": "card-1" }, { "face": "card-2" }, { "face": "card-3" }, { "face": "card-4" }, { "face": "card-5" }, { "face": "card-6" }], "limit": 10 });
+        model = new Board({ "cards": [{ "face": "card-1" }, { "face": "card-2" }], "limit": 10 });
     });
     describe("Hand Test - testing methods", function () {
         beforeEach(function () {
@@ -21,7 +21,7 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.log("Calling addCard() ...");
             });
             it("Card added", function () {
-                let result = model.addCard({ "face": "card-7" });
+                let result = model.addCard({ "face": "card-1" });
                 expect(result).toBe(true);
                 console.table(model.cards);
             });
