@@ -42,11 +42,11 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.table(model.cards);
                 let pos = model.insertAt({ "face": "card-2" }, 2);
                 console.log(pos);
-                expect(JSON.stringify(model.cards[model.cards.length - 1])).not.toBe(JSON.stringify({ "face": "card-2.5" }));
+                expect(JSON.stringify(model.cards[model.cards.length - 1])).toBe(JSON.stringify({ "face": "card-2" }));
                 console.log('Cards after insertAt() with position :');
                 console.table(model.cards);
                 model.insertAt({ "face": "card-2" });
-                expect(JSON.stringify(model.cards[model.cards.length - 1])).toBe(JSON.stringify({ "face": "card-2.5" }));
+                expect(JSON.stringify(model.cards[model.cards.length - 1])).toBe(JSON.stringify({ "face": "card-2" }));
                 console.log('Cards after insertAt() without position :');
                 console.table(model.cards);
             });

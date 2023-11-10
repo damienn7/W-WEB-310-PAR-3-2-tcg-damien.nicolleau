@@ -2,11 +2,11 @@
 export default class Hand {
     constructor (config) {
         this.cards = config.cards;
-        this.limit = ("limit" in config) ? config.limit : 7; // to be tested soon
+        this.limit = ("limit" in config) ? config.limit : 7;
     }
 
     addCard(card) {
-        if (this.cards.length > 0 && typeof card === "object") {
+        if (typeof card === "object") {
             this.cards.push(card);
             return true;
         } else {
@@ -16,7 +16,7 @@ export default class Hand {
 
     removeCard(position) {
         if (typeof position === "number" && position < this.cards.length) {
-            return this.cards.splice(position,1);
+            return this.cards.splice(position,position+1);
         } else {
             return false;
         }

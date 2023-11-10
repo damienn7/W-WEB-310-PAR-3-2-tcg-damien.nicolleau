@@ -5,12 +5,12 @@ import jQuery from 'jquery';
 describe("Player Test - testing methods", function () {
     var number = 0;
     var model;
+    var modelC;
     beforeEach(function () {
         number++;
         console.log("ModelTesting beginned [" + number + "]");
-        (function( jQuery ){
-            model = new Player({type:"human"});
-        })( jQuery );
+        model = new Player({ type: "human" });
+        modelC = new Player({ type: "computer" });
         console.table(model);
     });
     // TEST draw()
@@ -20,18 +20,87 @@ describe("Player Test - testing methods", function () {
         });
         it("Draw got for human side", function () {
 
-            // model = new Player({type:"human"});
+            expect(model.draw().face).toEqual("card-1");
 
-            // let modelHuman = new Player({ "type": "human", "life":70, "strength":80, "defense":30 });
-            // let modelComputer = new Player({ type: "computer" });
-            // let resultHuman = modelHuman.draw();
-            console.log("Is there an error ?")
-            expect(model.face).toEqual();
-            // console.table(model);
+        });
+        afterEach(function () {
+            console.log("Call ended");
+        });
+    });
 
-            // let resultComputer = modelComputer.draw();
-            // expect(typeof resultComputer).toEqual("obect");
-            // console.table(resultComputer);
+    // TEST shuffle()
+    describe("shuffle function ...", function () {
+        beforeEach(function () {
+            console.log("Calling shuffle() ...");
+        });
+        it("Cards shuffled got for human side", function () {
+
+            expect(model.shuffle()).toEqual(true);
+
+            expect(model.shuffle("error")).toEqual(false);
+
+            expect(model.shuffle("cemetary")).toEqual(true);
+
+        });
+        afterEach(function () {
+            console.log("Call ended");
+        });
+    });
+
+    // TEST playCard()
+    describe("playCard function ...", function () {
+        beforeEach(function () {
+            console.log("Calling playCard() ...");
+        });
+        it("Card played got for human side", function () {
+
+            let result = model.hand.addCard({ "face": "card-1" });
+            console.log("Player model");
+            console.log(model.hand, " result for addCard()", result);
+            model.playCard(0);
+            console.log(model.hand.getAllCards());
+            expect(model.hand.getAllCards().length).toEqual(0);
+
+        });
+        afterEach(function () {
+            console.log("Call ended");
+        });
+    });
+
+    // TEST discard()
+    describe("discard function ...", function () {
+        beforeEach(function () {
+            console.log("Calling discard() ...");
+        });
+        it("Discard got for human side", function () {
+
+            let result = model.hand.addCard({ "face": "card-1" });
+            console.log("Player model");
+            console.log(model.hand, " result for addCard()", result);
+            model.discard(0);
+            expect(model.cemetary.getCardsCount()).not.toEqual(0);
+
+        });
+        afterEach(function () {
+            console.log("Call ended");
+        });
+    });
+
+    // TEST attack()
+    describe("attack function ...", function () {
+        beforeEach(function () {
+            console.log("Calling attack() ...");
+        });
+        it("Attack got for human side", function () {
+
+            let result = model.board.addCard({ "face": "card-1" });
+            console.log("Player model");
+            // console.log(model.board, " result for addCard()", result);
+            model.attack(0,modelC);
+            // console.log("wanna see the result",result);
+            expect(modelC.life).not.toEqual(10);
+            console.table(model);
+            console.table(modelC);
         });
         afterEach(function () {
             console.log("Call ended");

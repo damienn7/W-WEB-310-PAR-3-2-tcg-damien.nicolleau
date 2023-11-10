@@ -11,7 +11,7 @@ describe("Unit Test - tests de la couche métier", function () {
         console.log("ModelTesting beginned [" + number + "]");
         model = new Board({ "cards": [{ "face": "card-1" }, { "face": "card-2" }], "limit": 10 });
     });
-    describe("Hand Test - testing methods", function () {
+    describe("Board Test - testing methods", function () {
         beforeEach(function () {
             console.log("Testing function ...");
         });
@@ -36,7 +36,7 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.log("Calling removeCard() ...");
             });
             it("Card removed", function () {
-                let result = model.removeCard(5);
+                let result = model.removeCard(0);
                 expect(result).not.toBe(false);
                 console.table(model.cards);
             });

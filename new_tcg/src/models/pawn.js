@@ -27,9 +27,12 @@ export default class Pawn extends EventManager {
     receiveAttack(opponent, strikeBack = false) {
         if (strikeBack === false) {
             this.life = (this.getLife() - opponent.getStrength() < 0) ? 0 : this.getLife() - opponent.getStrength();
+            if (this.life === 0) {
+                return;
+            }
             opponent.receiveAttack(this, true);
         } else {
-            this.life = (this.getLife() - opponent.getStrength() < 0) ? 0 : this.getLife() - (opponent.getStrength() + opponent.getDef());
+            this.life = (this.getLife() - (opponent.getStrength() + opponent.getDef()) < 0) ? 0 : this.getLife() - (opponent.getStrength() + opponent.getDef());
         }
     }
 }

@@ -18,7 +18,7 @@ export default class ArenaController extends Controller {
         this.down = new SideController(".side.player", this);
 
         // this.game = ModelFactory.get('game', {'up'  : ModelFactory.get('player', {type: 'computer'}),
-                                            //   'down': ModelFactory.get('player', {type: 'human'}) });
+        //                                       'down': ModelFactory.get('player', {type: 'human'}) });
         let up = new Player({type: 'computer'});
         let down = new Player({type:'human'});
         this.game = ModelFactory.get('game', {'up'  : up,

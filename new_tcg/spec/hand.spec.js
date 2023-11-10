@@ -35,7 +35,9 @@ describe("Unit Test - tests de la couche métier", function () {
                 console.log("Calling removeCard() ...");
             });
             it("Card removed", function () {
-                let result = model.removeCard(5);
+                model = new Hand({ "cards": [{ "face": "card-1" }, { "face": "card-2" }, { "face": "card-3" }, { "face": "card-4" }, { "face": "card-5" }, { "face": "card-6" }], "limit": 10 });
+                let result = model.removeCard(4);
+                console.log(result);
                 expect(result).not.toBe(false);
                 console.table(model.cards);
             });

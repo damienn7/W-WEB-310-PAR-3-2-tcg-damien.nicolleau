@@ -27,7 +27,7 @@ export default {
             var configParams = JSON.parse(models[modelName].param),
                 constructorParams = Object.assign({}, configParams, params);
 
-                console.log(constructorParams);
+                // console.log(constructorParams);
             var inst = Object.create(models[modelName].class.prototype);
             models[modelName].class.call(inst, constructorParams);
             return inst;
