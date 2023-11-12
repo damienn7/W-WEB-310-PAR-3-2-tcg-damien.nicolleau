@@ -1,5 +1,5 @@
 import Player from '../src/models/player';
-import jQuery from 'jquery';
+
 
 // npm test to run the test ;)
 describe("Player Test - testing methods", function () {
@@ -9,8 +9,8 @@ describe("Player Test - testing methods", function () {
     beforeEach(function () {
         number++;
         console.log("ModelTesting beginned [" + number + "]");
-        model = new Player({ type: "human" });
-        modelC = new Player({ type: "computer" });
+        model = new Player({ type: "human",life: 10,strength: 10,def: 10 });
+        modelC = new Player({ type: "computer",life: 10,strength: 10,def: 10 });
         console.table(model);
     });
     // TEST draw()

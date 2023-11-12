@@ -9,7 +9,7 @@ export default class Player extends Pawn {
 
     constructor(config) {
         // TO BE TESTED
-        super(10, 10, 10);
+        super(config.life, config.strength, config.def);
         //type human || type computer
         this.type = config.type;
         this.hand = new Hand({ cards: [] });

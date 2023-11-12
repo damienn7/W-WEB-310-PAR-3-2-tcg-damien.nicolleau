@@ -23,7 +23,7 @@ export default class ArenaController extends Controller {
         let down = new Player({type:'human'});
         this.game = ModelFactory.get('game', {'up'  : up,
                                               'down': down });
-                                              
+                                           
         this.on('clickDeck', this.onClickDeck.bind(this));
         this.on('clickHand', this.onClickHand.bind(this));
         this.on('clickBoard', this.onClickBoard.bind(this));

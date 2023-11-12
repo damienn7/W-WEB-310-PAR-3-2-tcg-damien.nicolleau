@@ -1,23 +1,29 @@
+import EventManager from "../eventManager";
 
-export default class Game {
+export default class Game extends EventManager{
     constructor(config) {
+        super();
         this.up = config.up;
         this.down = config.down;
-        this.turn = this.up;
+        this.turn = "up";
     }
 
     getTurn() {
         // to do
-        return this.turn;
+        if ("up") {
+            return {up:this.up,turn:"up"};
+        } else {
+            return {down:this.down,turn:"down"};
+        }
     }
 
     changeTurn() {
         // to do
-        if (this.turn.type === this.up.type) {
-            this.turn = this.down;
+        if (this.turn === "up") {
+            this.turn = "down";
             return this.turn;
         } else {
-            this.turn = this.up;
+            this.turn = "up";
             return this.turn;
         }
     }
